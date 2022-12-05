@@ -15,3 +15,38 @@ code {
   border: none;
   background: transparent;
 }
+.itemIcons {
+height:20px;
+width: 20px;
+margin-right: 10px;
+}
+thead {
+  display: table-header-group;
+  vertical-align: middle;
+}
+.bigCoin{
+  padding-left: 10px;
+}
+.smallCoins{
+  padding-left: 5px;
+}
+.change {
+  padding-left: 20px;
+}
+.itemPriceContainer {
+  background-color: #212529;
+  color: white;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 5px;
+}
+.alternating {
+  background-color:#2D3135!important;
+  }
+.navButton {
+  border: none;
+  background-color: transparent;
+}
+.prevButton {
+  transform: rotate(180deg)
+}

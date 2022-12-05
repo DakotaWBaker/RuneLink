@@ -1,7 +1,7 @@
 import React from 'react'
 import pp from './blank.png'
 
-export default function Navbar({page}) {
+export default function Navbar({page}) {  
   return (
 <header className="p-3 text-bg-dark">
   <div className="container">
@@ -47,10 +47,10 @@ export default function Navbar({page}) {
         />
       </form>
       <div className="text-end">
-        <button type="button" className="btn btn-outline-light me-2">
+        <button type="button" className="btn btn-outline-light me-2" onClick={() => page("Login")} >
           Login
         </button>
-        <button type="button" className="btn btn-warning">
+        <button type="button" className="btn btn-warning" onClick={() => page("Register")}>
           Sign-up
         </button>
         </div>
@@ -76,7 +76,7 @@ export default function Navbar({page}) {
       </a>
     </li>
     <li>
-      <a className="dropdown-item" href="#">
+      <a className="dropdown-item" href="#"  onClick={() => page("Profile")}>
         View Profile
       </a>
     </li>
