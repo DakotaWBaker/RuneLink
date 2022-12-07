@@ -7,11 +7,11 @@ import axios from "axios";
 import Home from './Home';
 import GroupFinder from './GroupFinder';
 import GrandExchange from './GrandExchange';
-import { GlobalProvider } from './context/GlobalState';
+import { GlobalProvider, useGlobalState } from './context/GlobalState';
 import Register from './Register';
 import Login from './Login';
 import Profile from './Profile'
-// const counter = 1
+
 
 function App() {
   const [page, setPage] = useState("Home");
@@ -19,6 +19,8 @@ function App() {
   const [pagination, setPagination] = useState(1)
   const [searchItems, setSearchItems] = useState('')
   const [profile, setProfile] = useState('')
+  const [ state, dispatch ] = useGlobalState();
+  const loggedIn = state.currentUser.user_id
   const api = `https://8000-dakotawbake-runelinkapi-zemha1opeck.ws-us77.gitpod.io/api/grandexchange?page=${pagination}`
   useEffect(() => {
     async function getData() {
@@ -31,14 +33,20 @@ function App() {
    
     const searchResponse = await axios.get(`https://8000-dakotawbake-runelinkapi-zemha1opeck.ws-us77.gitpod.io/api/gesearch?item=${searchParam}`);
     setSearchItems(searchResponse.data.item)
-    console.log(searchItems)
+
   }
-  async function getUserProfile(userId) {
-   
-    const profileResponse = await axios.get(`https://8000-dakotawbake-runelinkapi-zemha1opeck.ws-us77.gitpod.io/api/gesearch?item=${userId}`);
-    setProfile(profileResponse.data.item)
-    console.log(profile)
-  }
+  useEffect(() => {
+    async function getUserProfile() {
+      console.log(loggedIn)
+      const profileResponse = await axios.get(`https://8000-dakotawbake-runelinkapi-zemha1opeck.ws-us77.gitpod.io/api/users/${loggedIn}/`);
+      setProfile(profileResponse.data);
+    }
+    getUserProfile();
+  }, [page]);
+
+
+  
+
   if (page === 'Home') {
   return (
     <GlobalProvider>
@@ -59,6 +67,7 @@ function App() {
     return (
       <GlobalProvider>
       <Navbar 
+      
       page = {setPage}
       />
       <GroupFinder/>
@@ -70,6 +79,7 @@ function App() {
       <GlobalProvider>
       <Navbar 
       page = {setPage}
+     
       />
       <TwitterFeed />
       </GlobalProvider>
@@ -79,6 +89,7 @@ function App() {
       return (
         <GlobalProvider>
         <Navbar
+       
         page = {setPage}
         />
         <Register />
@@ -89,6 +100,7 @@ function App() {
       return (
         <GlobalProvider>
         <Navbar
+  
         page = {setPage}
         />
         <Login />
@@ -102,7 +114,8 @@ function App() {
         page = {setPage}
         />
         <Profile 
-        getUserProfile = {getUserProfile}
+        setProfile = {setProfile}
+        profile = {profile}
         />
         </GlobalProvider>
       )

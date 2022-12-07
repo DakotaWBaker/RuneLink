@@ -1,7 +1,7 @@
 import React from 'react'
 import pp from './blank.png'
 
-export default function Navbar({page}) {  
+export default function Navbar({page, getUserProfile}) {  
   return (
 <header className="p-3 text-bg-dark">
   <div className="container">
