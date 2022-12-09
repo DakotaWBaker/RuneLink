@@ -8,6 +8,8 @@ const Profile = ({profile}) => {
   let year = time.getFullYear()
   let month = months[time.getMonth()]
   let day = time.getDate()
+  let hours = time.getHours()
+  let minutes = time.getMinutes()
   console.log(year, month)
   return (
     <div>

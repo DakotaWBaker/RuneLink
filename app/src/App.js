@@ -20,8 +20,9 @@ function App() {
   const [searchItems, setSearchItems] = useState('')
   const [profile, setProfile] = useState('')
   const [ state, dispatch ] = useGlobalState();
-  const loggedIn = state.currentUser.user_id
-  const api = `https://8000-dakotawbake-runelinkapi-zemha1opeck.ws-us77.gitpod.io/api/grandexchange?page=${pagination}`
+
+ 
+  const api = `https://8000-dakotawbake-runelinkapi-zemha1opeck.ws-us78.gitpod.io/api/grandexchange?page=${pagination}`
   useEffect(() => {
     async function getData() {
       const response = await axios.get(api);
@@ -31,14 +32,15 @@ function App() {
   }, [pagination]);
   async function getSearchData(searchParam) {
    
-    const searchResponse = await axios.get(`https://8000-dakotawbake-runelinkapi-zemha1opeck.ws-us77.gitpod.io/api/gesearch?item=${searchParam}`);
+    const searchResponse = await axios.get(`https://8000-dakotawbake-runelinkapi-zemha1opeck.ws-us78.gitpod.io/api/gesearch?item=${searchParam}`);
     setSearchItems(searchResponse.data.item)
 
   }
   useEffect(() => {
     async function getUserProfile() {
+      const loggedIn = state.currentUser.user_id
       console.log(loggedIn)
-      const profileResponse = await axios.get(`https://8000-dakotawbake-runelinkapi-zemha1opeck.ws-us77.gitpod.io/api/users/${loggedIn}/`);
+      const profileResponse = await axios.get(`https://8000-dakotawbake-runelinkapi-zemha1opeck.ws-us78.gitpod.io/api/users/${loggedIn}/`);
       setProfile(profileResponse.data);
     }
     getUserProfile();
@@ -70,7 +72,9 @@ function App() {
       
       page = {setPage}
       />
-      <GroupFinder/>
+      <GroupFinder
+      page = {page}
+      />
       </GlobalProvider>
     )
     }
