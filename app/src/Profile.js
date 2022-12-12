@@ -1,6 +1,6 @@
 import React from "react"
 import { useGlobalState } from "./context/GlobalState";
-import profilepic from './blank.png'
+import profilepic from './assets/blank.png'
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 const Profile = ({profile}) => {
   console.log(profile)
@@ -15,6 +15,7 @@ const Profile = ({profile}) => {
     <div>
       <div className="container profileContainer">
       <div className='row'>
+        
       <div className = 'col pt-4 text-center'>
         <img className = 'pp' src = {profilepic} />
       </div>
@@ -28,7 +29,7 @@ const Profile = ({profile}) => {
         <div className = 'col'>
         <p>{profile.first_name}</p>
         
-      </div>
+   
       </div>
       <div className = 'row'>
      <div className = 'col'>
@@ -38,8 +39,8 @@ const Profile = ({profile}) => {
       </div>
       </div>
       </div>
-     
-      <table className="table">
+      </div>
+      <table className="table table-dark w-100">
   <thead>
     <tr>
       <th scope = 'col'></th>
