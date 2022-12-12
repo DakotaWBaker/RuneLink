@@ -1,5 +1,5 @@
 import React from 'react'
-import pp from './blank.png'
+import pp from './assets/blank.png'
 
 export default function Navbar({page, getUserProfile}) {  
   return (
@@ -47,10 +47,10 @@ export default function Navbar({page, getUserProfile}) {
         />
       </form>
       <div className="text-end">
-        <button type="button" className="btn btn-outline-light me-2" onClick={() => page("Login")} >
+        <button type="button" className="btn loginButton btn-outline-light me-2" onClick={() => page("Login")} >
           Login
         </button>
-        <button type="button" className="btn btn-warning" onClick={() => page("Register")}>
+        <button type="button" className="btn btn-outline-light" onClick={() => page("Register")}>
           Sign-up
         </button>
         </div>

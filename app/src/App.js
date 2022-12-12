@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import TwitterFeed from './TwitterFeed';
 import Navbar from './Navbar';
@@ -55,6 +54,7 @@ function App() {
     <Navbar
     page = {setPage}
     />
+    <Home />
     <GrandExchange
     items = {ge}
     pagination = {pagination}

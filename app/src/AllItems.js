@@ -1,6 +1,6 @@
 import React from "react";
-import next from './right-chevron.png'
-import prev from './double-chevron.png'
+import next from './assets/right-chevron.png'
+import prev from './assets/double-chevron.png'
 
 export default function AllItems({
   items,
@@ -21,7 +21,7 @@ export default function AllItems({
     <div className = 'col-6'>
       <input
         type="search"
-        className="form-control form-control-dark text-bg-dark mt-4 mb-2"
+        className="form-control form-control-dark text-bg-dark mt-4 mb-4"
         placeholder="Search GE Items"
         aria-label="Search"
         onKeyDown={(e) => handleInput(e)}
@@ -30,7 +30,10 @@ export default function AllItems({
       </div>
       <div className = 'row'>
     <div className = 'col12'>
-      <table className="table table-dark">
+      {/* <div className="container-fluid gecontainer">
+        <div className = 'row justify-content-center'>
+        <div className = 'col'> */}
+      <table className="table table-dark" id = "grandExchangeScroll">
         <thead>
           <tr>
             <th scope="col">Item</th>
@@ -54,7 +57,7 @@ export default function AllItems({
             <th scope="col">Examine</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className = 'tbody'>
           {items.map((el) => {
             return (
               <tr>
@@ -100,5 +103,8 @@ export default function AllItems({
       </div>
       </div>
       </div>
+      // </div>
+      // </div>
+      // </div>
   );
 }
