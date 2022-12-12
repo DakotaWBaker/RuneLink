@@ -221,9 +221,9 @@ export default function GroupFinder({ page }) {
 
                 <div className="align-items:center px-3 py-2 border-t dark:border-gray-600"></div>
               </div>
-              //{" "}
+              {" "}
             </div>
-            //{" "}
+            {" "}
           </div>
           // </div>
         );
