@@ -1,3 +1,7 @@
+html, body, #root{
+  background-color: #F7F8FC;
+  font-family: 'Montserrat', sans-serif;
+}
 .App {
   text-align: center;
 }
@@ -35,4 +39,70 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+tbody {
+    display: block;
+    height: 500px;
+    overflow: auto;
+    overflow-y: scroll;
+}
+thead, tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+/* thead { 
+    width: calc( 100% - 15px)
+} */
+
+table {
+    width: 400px;
+}
+/* tr:nth-of-type(even) th {
+  background-color: #212529f1;
+}
+tr:nth-of-type(even) td {
+  background-color: #212529f1;
+} */
+.gradient-custom-3 {
+  /* fallback for old browsers */
+  background: #84fab0;
+  
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5));
+  
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5))
+  }
+  .gradient-custom-4 {
+  /* fallback for old browsers */
+  background: #84fab0;
+  
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1));
+  
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1))
+  }
+.skillsRow {
+  border: none;
+}
+.skillsImg {
+  height: 20px;
+  width: 20px;
+}
+.pp {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+}
+
+.profileContainer {
+  background-color: white;
+  border: 1px solid #212529;
+  border-radius: 15px;
+  margin-top: 30px;
+  box-shadow: 2px 4px 10px hsla(0, 0%, 0%, .3),
+  2px 4px 20px hsla(0, 0%, 0%, .2);
 }
