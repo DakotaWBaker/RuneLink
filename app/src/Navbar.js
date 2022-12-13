@@ -1,7 +1,10 @@
 import React from 'react'
 import pp from './assets/blank.png'
+import Login from './Login'
+import Register from './Register'
 
 export default function Navbar({page, getUserProfile}) {  
+  let login = ''
   return (
 <header className="p-3 text-bg-dark">
   <div className="container">
@@ -47,10 +50,10 @@ export default function Navbar({page, getUserProfile}) {
         />
       </form>
       <div className="text-end">
-        <button type="button" className="btn loginButton btn-outline-light me-2" onClick={() => page("Login")} >
+        <button type="button" className="btn loginButton btn-outline-light me-2"  data-bs-toggle="modal" data-bs-target="#exampleModal" data-backdrop="false"> 
           Login
         </button>
-        <button type="button" className="btn btn-outline-light" onClick={() => page("Register")}>
+        <button type="button" className="btn btn-outline-light"  data-bs-toggle="modal" data-bs-target="#registerModal" data-backdrop="false">
           Sign-up
         </button>
         </div>
@@ -91,9 +94,85 @@ export default function Navbar({page, getUserProfile}) {
   </ul>
 </div>
 </div>
-
+<div
+  className="modal fade"
+  id="exampleModal"
+  tabIndex={-1}
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div className="modal-dialog modal-dialog-centered modal-lg">
+    <div className="modal-content">
+      <div className="modal-header">
+        <h1 className="modal-title fs-5" id="exampleModalLabel">
+          Modal title
+        </h1>
+        <button
+          type="button"
+          className="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        />
+      </div>
+      <div className="modal-body h-100 w-100">
+        <Login />
+      </div>
+      <div className="modal-footer">
+        <button
+          type="button"
+          className="btn btn-secondary"
+          data-bs-dismiss="modal"
+        >
+          Close
+        </button>
+        <button type="button" className="btn btn-primary">
+          Save changes
+        </button>
+      </div>
+    </div>
   </div>
+</div>
+<div
+  className="modal fade"
+  id="registerModal"
+  tabIndex={-1}
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div className="modal-dialog modal-dialog-centered modal-dialog modal-lg">
+    <div className="modal-content">
+      <div className="modal-header">
+        <h1 className="modal-title fs-5" id="exampleModalLabel">
+          Modal title
+        </h1>
+        <button
+          type="button"
+          className="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        />
+      </div>
+      <div className="modal-body h-100 w-100">
+        <Register />
+      </div>
+      <div className="modal-footer">
+        <button
+          type="button"
+          className="btn btn-secondary"
+          data-bs-dismiss="modal"
+        >
+          Close
+        </button>
+        <button type="button" className="btn btn-primary">
+          Save changes
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 </header>
 
   )
 }
+// onClick={() => page("Login")}

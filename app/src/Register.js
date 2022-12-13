@@ -102,8 +102,7 @@ const Register = () => {
                 onChange={(e) => handleChange("rsn", e.target.value)}
               />
             </div>
-            <input
-              type="submit"
+            <button className="btn btn-outline-light" type="submit" data-bs-dismiss="modal"
               value="Register"
               disabled={
                 user.password &&
@@ -116,8 +115,9 @@ const Register = () => {
                   ? false
                   : true
               }
-            />
+            >Register</button>
           </form>
+            <button className="btn btn-outline-light" data-bs-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
