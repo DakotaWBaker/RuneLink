@@ -373,7 +373,7 @@ resize: none;
 
 a {
     color: white;
-    font-size: 2.25em;
+    /* font-size: 2.25em; */
 }
 .wrap {
   position: relative;

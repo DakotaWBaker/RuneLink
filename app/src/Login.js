@@ -23,11 +23,10 @@ const Login = () => {
   };
 
   return (
-
-<div className="d-flex justify-content-center align-items-center ">
+    <div className="d-flex justify-content-center align-items-center ">
       <div className="col-md-5 p-5 login shadow-sm border rounded-5">
         <h2 className="text-center mb-4">Login</h2>
-        
+
         <form onSubmit={handleLogin}>
           <div className="mb-3">
             <label
@@ -58,21 +57,20 @@ const Login = () => {
             />
           </div>
           <div className="d-grid">
-            <button className="btn btn-outline-light" type="submit" data-bs-dismiss="modal">
+            <button
+              className="btn btn-outline-light"
+              type="submit"
+              data-bs-dismiss="modal"
+            >
               Login
             </button>
             <button className="btn btn-outline-light" data-bs-dismiss="modal">
-             Close
+              Close
             </button>
           </div>
         </form>
       </div>
     </div>
-   
-
-
-   
-
   );
 };
 
