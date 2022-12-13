@@ -9,14 +9,20 @@ import comment from "./assets/message.png";
 import pp from "./assets/blankpic.png";
 
 export default function GroupFinder({ page }) {
+ 
   const [state, dispatch] = useGlobalState();
   const [postView, setPostView] = useState([]);
   const [commentPost, setCommentPost] = useState("");
+  // console.log(state.currentUser.user_id)
+  let userId = ''
+  if (state.currentUser) {
+    userId = state.currentUser.user_id
+  }
   const [commentReturn, setCommentReturn] = useState("");
   const [user, setUser] = useState({
     body: "",
     activity: "",
-    user: state.currentUser.user_id,
+    user: userId
   });
 
   const handleChange = (key, value) => {
@@ -25,7 +31,9 @@ export default function GroupFinder({ page }) {
       [key]: value,
     });
   };
-  async function handlePost() {
+  async function handlePost(e) {
+    e.preventDefault()
+    e.target.reset();
     let options = {
       url: "groupfinder/",
       method: "POST",
@@ -54,7 +62,7 @@ export default function GroupFinder({ page }) {
         url: "comment/",
         method: "GET",
         params: {
-          user: state.currentUser.user_id,
+          user: userId,
         },
       };
       let resp = await request(options);
@@ -65,13 +73,13 @@ export default function GroupFinder({ page }) {
   }, []);
 
   async function postComment(postId) {
-    console.log(postId);
+    document.getElementById('post').value = ""
     let options = {
       url: "comment/",
       method: "POST",
       data: {
         comment: commentPost,
-        user: state.currentUser.user_id,
+        user: userId,
         post: postId,
       },
     };
@@ -79,22 +87,23 @@ export default function GroupFinder({ page }) {
     let resp = await request(options);
     setCommentPost([...commentPost, resp.data]);
   }
-  console.log(commentReturn);
+ 
   return (
     <>
-      <div className="container mt-5">
+      <div className="container-fluid mt-5">
         <div className="row formRow justify-content-center">
-          <form onSubmit={handlePost}>
             <div className="col">
+          <form onSubmit={handlePost}>
               <div className="wrap">
                 <div className="panel panel-default contact-us-form">
                   <div className="panel-body">
                     <h2 className="title">Make Post</h2>
-                    <form action="">
+                 
                       <div className="form-group">
                         <div className="form-group">
                           <input
                             type="text"
+                            id = 'activity'
                             className="form-control mt-1"
                             placeholder="Activity Type"
                             onChange={(e) =>
@@ -106,6 +115,7 @@ export default function GroupFinder({ page }) {
                         <div className="form-group">
                           <textarea
                             rows={4}
+                            id = 'body'
                             className="form-control mt-1"
                             placeholder="Post Message"
                             defaultValue={""}
@@ -126,18 +136,20 @@ export default function GroupFinder({ page }) {
                           Submit
                         </button>
                       </div>
-                    </form>
                   </div>
                 </div>{" "}
                 {/* /wrap */}
               </div>
-            </div>
           </form>
+            </div>
         </div>
       </div>
-
+      <div className = "container-fluid">
+          <div className = "row">
       {postView.map((el, i) => {
         return (
+         
+          <div className = "col-s-12 col-xl-6">
           <div className="container justify-content-center mt-3 postsContainerOuter">
             <div className="row justify-content-center">
               <div className="col">
@@ -178,7 +190,7 @@ export default function GroupFinder({ page }) {
                   </h2>
                   <div
                     id={`collapse${i}`}
-                    class="accordion-collapse collapse show"
+                    class="accordion-collapse collapse"
                     aria-labelledby={`heading${i}`}
                     data-bs-parent="#accordionExample"
                   >
@@ -196,7 +208,7 @@ export default function GroupFinder({ page }) {
                           className="btn send-button btn-outline-light "
                           id="submit"
                           type="submit"
-                          value="SEND"
+                          // value="SEND"
                           onClick={() => postComment(el.id)}
                         >
                           <div className="alt-send-button">
@@ -225,9 +237,11 @@ export default function GroupFinder({ page }) {
             </div>
             {" "}
           </div>
-          // </div>
+           </div>
         );
       })}
+      </div>
+      </div>
     </>
   );
 }

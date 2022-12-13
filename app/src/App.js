@@ -61,6 +61,7 @@ function App() {
     setPage = {setPagination}
     getSearchData = {getSearchData}
     searchItems = {searchItems}
+    page = {page}
     />
     </GlobalProvider>
   )

@@ -373,7 +373,7 @@ resize: none;
 
 a {
     color: white;
-    font-size: 2.25em;
+    /* font-size: 2.25em; */
 }
 .wrap {
   position: relative;
@@ -386,6 +386,28 @@ a {
   background-color: #212528;
   color: white;
   margin-top: 10px;
+  visibility: visible !important;
 }
 
-
+.fade-in-section {
+   opacity: 0;
+  transform: translateY(20vh);
+  visibility: hidden;
+  transition: opacity 0.6s ease-out, transform 1.2s ease-out;
+  will-change: opacity, visibility; 
+  
+} 
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: none;
+  visibility: visible;
+}
+.modal-body {
+ height: 10px !important;
+}
+.modal {
+  visibility: hidden;
+}
+.btn-close {
+  background-color: white !important;
+}
